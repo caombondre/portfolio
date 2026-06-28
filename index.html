@@ -134,10 +134,11 @@
 
         .hero-img {
             width: 320px;
-            height: 400px;
+            height: 320px;
             border-radius: 12px;
             border: 2px solid var(--accent-gold);
-            object-fit: bottom;
+            object-fit: cover;
+            object-position: top;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
@@ -238,6 +239,61 @@
             font-size: 0.9rem;
         }
 
+        /* Services Grid Layout */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            transition: var(--transition);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card i {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.25rem;
+        }
+
+        .service-card h3 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .whatsapp-tag {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #25D366;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: auto;
+        }
+
         /* Timeline (Experience & Education) */
         .timeline {
             position: relative;
@@ -251,7 +307,7 @@
             width: 2px;
             background: rgba(255, 255, 255, 0.1);
             top: 0;
-            bottom: 0;
+ bottom: 0;
             left: 20px;
         }
 
@@ -368,40 +424,10 @@
             font-size: 1.2rem;
         }
 
-        /* Achievements Section */
-        .achieve-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .achieve-card {
-            background: var(--bg-secondary);
-            padding: 2.5rem;
-            border-radius: 8px;
-            display: flex;
-            gap: 1.5rem;
-            align-items: flex-start;
-        }
-
-        .achieve-card i {
-            font-size: 2.5rem;
-            color: var(--accent-gold);
-        }
-
-        .achieve-card h3 {
-            color: var(--white);
-            margin-bottom: 0.5rem;
-        }
-
-        .achieve-card p {
-            color: var(--text-muted);
-        }
-
         /* Contact Section */
         .contact-content {
             text-align: center;
-            max-width: 600px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -413,14 +439,14 @@
 
         .contact-info-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
             margin-bottom: 3rem;
         }
 
         .contact-box {
             background: var(--bg-secondary);
-            padding: 1.5rem;
+            padding: 2rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
             color: inherit;
@@ -431,10 +457,11 @@
         .contact-box:hover {
             transform: translateY(-3px);
             background: #172a45;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         .contact-box i {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--accent-gold);
             margin-bottom: 0.75rem;
         }
@@ -442,11 +469,12 @@
         .contact-box h4 {
             color: var(--white);
             margin-bottom: 0.25rem;
+            font-size: 1.1rem;
         }
 
         .contact-box p {
             margin-bottom: 0;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         /* Footer */
@@ -460,12 +488,11 @@
 
         /* Responsive Design */
         @media (max-width: 968px) {
-            .hero-content, .about-grid, .skills-container, .achieve-grid, .contact-info-grid {
+            .hero-content, .about-grid, .skills-container, .contact-info-grid {
                 grid-template-columns: 1fr;
             }
             .hero-content {
                 text-align: center;
-                grid-template-reverse: row;
             }
             .hero-text p {
                 margin: 0 auto 2.5rem auto;
@@ -493,10 +520,10 @@
             <a href="#" class="logo">CA<span>OMBONDRE</span></a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -511,11 +538,11 @@
                 <p>Specializing in Corporate Finance, FP&A, and advanced financial insights. Experienced in cross-industry Auditing, Income Tax, and complex GST compliance matters.</p>
                 <div class="btn-container">
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                    <a href="resume.pdf" download="CA_Om_Bondre_Resume.pdf" class="btn btn-primary"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
+                    <a href="#services" class="btn btn-primary"><i class="fa-solid fa-gears"></i> View Services</a>
                 </div>
             </div>
             <div class="hero-img-container">
-                <img src="images/Om Photo.jpeg" alt="CA Om Bondre" class="hero-img">
+                <img src="images/profile.jpeg" alt="CA Om Bondre" class="hero-img">
             </div>
         </div>
     </section>
@@ -538,6 +565,113 @@
                     <p>Adept at handling complex legal landscapes, GST litigation mechanisms, and formal appeals.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">Professional Services</h2>
+        <div class="services-grid">
+            
+            <a href="https://wa.me/919403285122?text=Hello%20CA%20Om%20Bondre,%20I%20am%20interested%20in%20your%20Goods%20and%20Service%20Tax%20(GST)%20Returns%20service." target="_blank" class="service-card">
+                <div>
+                    <i class="fa-solid fa-percent"></i>
+                    <h3>Goods & Service Tax (GST) Returns</h3>
+                    <p>Accurate, end-to-end periodic GSTR filings ensuring maximum input tax credit alignment.</p>
+                </div>
+                <span class="whatsapp-tag"><i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp</span>
+            </a>
+
+            <a href="https://wa.me/919403285122?text=Hello%20CA%20Om%20Bondre,%20I%20am%20interested%20in%20your%20GST%20Audit%20(GSTR%209,%209C)%20service." target="_blank" class="service-card">
+                <div>
+                    <i class="fa-solid fa-scale-balanced"></i>
+                    <h3>GST Audit (GSTR 9, 9C)</h3>
+                    <p>Comprehensive annual reconciliation frameworks and systemic audit compliance structures.</p>
+                </div>
+                <span class="whatsapp-tag"><i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp</span>
+            </a>
+
+            <a href="https://wa.me/919403285122?text=Hello%20CA%20Om%20Bondre,%20I%20am%20interested%20in%20your%20Income%20Tax%20Returns%20service." target="_blank" class="service-card">
+                <div>
+                    <i class="fa-solid fa-coins"></i>
+                    <h3>Income Tax Returns</h3>
+                    <p>Strategic individual and corporate financial year closures optimized for tax shielding.</p>
+                </div>
+                <span class="whatsapp-tag"><i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp</span>
+            </a>
+
+            <a href="https://wa.me/919403285122?text=Hello%20CA%20Om%20Bondre,%20I%20am%20interested%20in%20your%20Accounting%20Setup%20service." target="_blank" class="service-card">
+                <div>
+                    <i class="fa-solid fa-folder-plus"></i>
+                    <h3>Accounting Setup</h3>
+                    <p>Designing modern primary ledger books from scratch tailored to business operational flows.</p>
+                </div>
+                <span class="whatsapp-tag"><i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp</span>
+            </a>
+
+            <a href="https://wa.me/919403285122?text=Hello%20CA%20Om%20Bondre,%20I%20am%20interested%20in%20your%20Business%20Consultancy%20service." target="_blank" class="service-card">
+                <div>
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h3>Business Consultancy</h3>
+                    <p>Actionable advisory modules to steer corporate optimization and maximize operational value.</p>
+                </div>
+                <span class="whatsapp-tag"><i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp</span>
+            </a>
+
+            <a href="https://wa.me/919403285122?text=Hello%20CA%20Om%20Bondre,%20I%20am%20interested%20in%20your%20Virtual%20CFO%20Services." target="_blank" class="service-card">
+                <div>
+                    <i class="fa-solid fa-user-tie"></i>
+                    <h3>Virtual CFO Services</h3>
+                    <p>On-demand boardroom financial direction, forecasting matrices, and liquidity controls.</p>
+                </div>
+                <span class="whatsapp-tag"><i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp</span>
+            </a>
+
+            <a href="https://wa.me/919403285122?text=Hello%20CA%20Om%20Bondre,%20I%20am%20interested%20in%20your%20Tax,%20GST%20%26%20Compliance%20services." target="_blank" class="service-card">
+                <div>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Tax, GST & Compliance</h3>
+                    <p>Omni-channel institutional monitoring protecting operations from regulatory speedbumps.</p>
+                </div>
+                <span class="whatsapp-tag"><i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp</span>
+            </a>
+
+            <a href="https://wa.me/919403285122?text=Hello%20CA%20Om%20Bondre,%20I%20am%20interested%20in%20your%20Bookkeeping%20and%20Payroll%20management%20service." target="_blank" class="service-card">
+                <div>
+                    <i class="fa-solid fa-calculator"></i>
+                    <h3>Bookkeeping & Payroll</h3>
+                    <p>Clean ledger upkeep coupled with fully compliant automated salary/wage dispersal engines.</p>
+                </div>
+                <span class="whatsapp-tag"><i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp</span>
+            </a>
+
+            <a href="https://wa.me/919403285122?text=Hello%20CA%20Om%20Bondre,%20I%20am%20interested%20in%20your%20Zoho%20Enterprise%20Stack%20architecture%20setup." target="_blank" class="service-card">
+                <div>
+                    <i class="fa-solid fa-box-archive"></i>
+                    <h3>Zoho Enterprise Stack</h3>
+                    <p>Structuring custom Zoho ERP, Books, CRM, and Expense systems tailored to corporate logic.</p>
+                </div>
+                <span class="whatsapp-tag"><i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp</span>
+            </a>
+
+            <a href="https://wa.me/919403285122?text=Hello%20CA%20Om%20Bondre,%20I%20am%20interested%20in%20your%20Mobile%20App%20Mastery%20consultancy." target="_blank" class="service-card">
+                <div>
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <h3>Mobile App Mastery</h3>
+                    <p>Advising on financial logic integration and monetization tech for modern mobile tech frameworks.</p>
+                </div>
+                <span class="whatsapp-tag"><i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp</span>
+            </a>
+
+            <a href="https://wa.me/919403285122?text=Hello%20CA%20Om%20Bondre,%20I%20am%20interested%20in%20your%20Suitable%20Web%20Architecture%20consultancy." target="_blank" class="service-card">
+                <div>
+                    <i class="fa-solid fa-network-wired"></i>
+                    <h3>Suitable Web Architecture</h3>
+                    <p>Optimizing tech ecosystems to seamlessly match backend cloud pipelines with secure billing apps.</p>
+                </div>
+                <span class="whatsapp-tag"><i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp</span>
+            </a>
+
         </div>
     </section>
 
@@ -565,7 +699,7 @@
 
     <!-- Education Section -->
     <section id="education">
-        <h2 class="section-title">Education</h2>
+        <h2 class="section-title">Education & Credentials</h2>
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
@@ -582,6 +716,17 @@
                     <div class="timeline-date">2022 – 2025</div>
                     <h3>Bachelor of Commerce (B.Com)</h3>
                     <div class="timeline-subtitle">Savitribai Phule Pune University</div>
+                    <ul style="margin-top: 1rem;">
+                        <li>Secured a trophy in the <strong>'Investomania'</strong> competition, showcasing analytical and financial decision-making skills.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Actuarial Science Credentials</div>
+                    <h3>Institute of Actuaries of India</h3>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">Successfully cleared the Actuarial Common Entrance Test (ACET) along with an advanced structural paper of the Actuarial Science Course.</p>
                 </div>
             </div>
             <div class="timeline-item">
@@ -596,10 +741,19 @@
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
+                    <div class="timeline-date">June 2022</div>
+                    <h3>CA Foundation</h3>
+                    <div class="timeline-subtitle">ICAI</div>
+                    <div class="grade">Score: 261/400 (65.25%)</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
                     <div class="timeline-date">March 2022</div>
                     <h3>Higher Secondary Certificate (XII)</h3>
                     <div class="timeline-subtitle">Jubilee English Junior College (State Board)</div>
-                    <div class="grade">Percentage: 90.50%</div>
+                    <div class="grade">Percentage: 90.50% (543/600)</div>
                 </div>
             </div>
             <div class="timeline-item">
@@ -641,27 +795,6 @@
         </div>
     </section>
 
-    <!-- Achievements Section -->
-    <section id="achievements">
-        <h2 class="section-title">Achievements</h2>
-        <div class="achieve-grid">
-            <div class="achieve-card">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <div>
-                    <h3>Actuarial Science Credentials</h3>
-                    <p>Successfully cleared the Actuarial Common Entrance Test (ACET) along with an advanced structural paper from the Institute of Actuaries of India.</p>
-                </div>
-            </div>
-            <div class="achieve-card">
-                <i class="fa-solid fa-trophy"></i>
-                <div>
-                    <h3>Investomania Title Winner</h3>
-                    <p>Secured the championship trophy in 'Investomania', demonstrating elite real-time financial problem-solving and investment evaluation mechanics.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section id="contact">
         <h2 class="section-title">Connect Professionally</h2>
@@ -678,6 +811,11 @@
                     <i class="fa-brands fa-linkedin"></i>
                     <h4>LinkedIn</h4>
                     <p>Connect Professionally</p>
+                </a>
+                <a href="resume.pdf" download="CA_Om_Bondre_Resume.pdf" class="contact-box">
+                    <i class="fa-solid fa-file-arrow-down"></i>
+                    <h4>Download CV</h4>
+                    <p>Get Comprehensive Profile</p>
                 </a>
             </div>
             
